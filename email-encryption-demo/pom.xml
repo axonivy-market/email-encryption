@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.axonivy.market</groupId>
+  <artifactId>email-encryption-demo</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>iar</packaging>
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcmail-jdk15on -->
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcmail-jdk15on</artifactId>
+      <version>1.70</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.googlecode.owasp-java-html-sanitizer/owasp-java-html-sanitizer -->
+    <dependency>
+      <groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
+      <artifactId>owasp-java-html-sanitizer</artifactId>
+      <version>20211018.2</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.axonivy.ivy.ci</groupId>
+        <artifactId>project-build-plugin</artifactId>
+        <version>10.0.0</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

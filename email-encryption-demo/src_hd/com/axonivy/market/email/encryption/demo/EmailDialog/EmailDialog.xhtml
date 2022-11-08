@@ -1,0 +1,103 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+  <ui:composition template="/layouts/frame-10.xhtml">
+	<ui:define name="title">Send Encrypted Email</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<p:growl id="messages" />
+			<div class="ui-g ui-fluid">
+				<div class="ui-g-12">
+					<h3>Send Encrypted Email</h3>
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:outputLabel for="host" value="Client Host"/>
+						<p:inputText id="host" value="#{data.encryptedEmailSenderBean.hostname}" disabled="true"/>
+						
+						<p:outputLabel for="port" value="Client Port"/>
+						<p:inputText id="port" value="#{data.encryptedEmailSenderBean.port}" disabled="true"/>
+						
+						<p:outputLabel for="username" value="Client Username"/>
+						<p:inputText id="username" value="#{data.encryptedEmailSenderBean.username}" disabled="true"/>
+					</h:panelGrid>
+					<p:panel id="mainPanel">
+						<p:outputLabel for="emailFromInputText" value="From"/>
+						<p:inputText id="emailFromInputText" value="#{data.encryptedEmailSenderBean.email.from}" />
+						
+						<p:outputLabel for="emailToInputText" value="To"/>
+						<p:inputText id="emailToInputText" value="#{data.encryptedEmailSenderBean.email.to}" 
+							required="true" requiredMessage="To is mandatory field."/>
+						
+						<p:outputLabel for="emailSubjectInputText" value="Subject"/>
+						<p:inputText id="emailSubjectInputText" value="#{data.encryptedEmailSenderBean.email.subject}" />
+						
+						<p:dataGrid id="listAttachments" columns="1" value="#{data.encryptedEmailSenderBean.email.attachments}" 
+								var="attachment" emptyMessage="">
+							<h:outputText value="#{attachment.name}"/>
+							<p:commandLink actionListener="#{data.encryptedEmailSenderBean.removeAttachment(attachment)}" 
+								update="@parent" process="@parent">
+								<i class="fa fa-close" />
+							</p:commandLink>
+						</p:dataGrid>
+						<p:fileUpload id="addAttachment" mode="advanced" skinSimple="true" 
+								auto="true" update="listAttachments" 
+								listener="#{data.encryptedEmailSenderBean.addAttachment}" 
+								label="Add attachment" />
+						<p:outputLabel for="certificateInputTextarea" value="X.509 Certificate (Public key of the receiver)"/>
+						<p:inputTextarea id="certificateInputTextarea" value="#{data.encryptedEmailSenderBean.certificateAsString}" 
+							rows="4" autoResize="false" required="true" requiredMessage="Certificate is mandatory field."/>
+						
+						<p:outputLabel for="emailContentInputTextEditor" value="Content"/>
+						<p:textEditor id="emailContentInputTextEditor" value="#{data.encryptedEmailSenderBean.email.content}" 
+								allowImages="false" allowLinks="false" height="200">
+							<f:facet name="toolbar">
+								<span class="ql-formats">
+									<select class="ql-font" />
+									<select class="ql-size" />
+								</span>
+								<span class="ql-formats">
+									<button class="ql-bold" />
+									<button class="ql-italic" />
+									<button class="ql-underline" />
+									<button class="ql-strike" />
+								</span>
+								<span class="ql-formats">
+									<select class="ql-color" />
+									<select class="ql-background" />
+								</span>
+								<span class="ql-formats">
+									<button class="ql-list" value="ordered" />
+									<button class="ql-list" value="bullet" />
+									<button class="ql-indent" value="-1" />
+									<button class="ql-indent" value="+1" />
+								</span>
+								<span class="ql-formats">
+									<button class="ql-direction" value="rtl" />
+									<select class="ql-align" />
+								</span>
+								<span class="ql-formats">
+									<button class="ql-clean" />
+								</span>
+							</f:facet>
+						</p:textEditor>
+					</p:panel>
+				</div>
+				<div class="ui-g-12 ui-md-3">
+					<p:commandButton value="Send Email" 
+							icon="fa fa-envelope-o" 
+							actionListener="#{data.encryptedEmailSenderBean.sendEmail}" update="messages" />
+				</div>
+				<div class="ui-g-12 ui-md-9">
+				</div>
+			</div>
+			<div class="command-btns">
+				<p:commandButton id="close" actionListener="#{logic.close}" value="Close" update="@form" 
+					icon="pi pi-check" immediate="true"/>
+			</div>
+		</h:form>
+	</ui:define>
+  </ui:composition>
+</h:body>
+
+</html>
