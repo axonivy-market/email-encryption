@@ -45,16 +45,12 @@ public class SendEncryptedEmailWebIT {
 			$(By.id("form:certificateInputTextarea")).sendKeys(IOUtils.toString(certificate, StandardCharsets.UTF_8));
 		} catch (IOException e) {
 		}
-		String emailContent = "Hi Tester WebIT,<br/><br/>"
-				+ "This is an encrypted email sent to you by an Axon Ivy Integration Test.<br/><br/>"
-				+ "Best regards,<br/>"
+		String emailContent = "Hi Tester WebIT, <br/><br/> "
+				+ "This is an encrypted email sent to you by an Axon Ivy Integration Test. <br/><br/> "
+				+ "Best regards, <br/> "
 				+ "Axon Ivy AG";
 		$(By.id("form:emailContentInputTextEditor")).scrollTo().shouldBe(enabled).click();
-		/* Selenide.executeJavaScript("form:emailContentInputTextEditor.editor.setText('" + "Hi Tester WebIT,<br/><br/>"
-				+ "This is an encrypted email sent to you by an Axon Ivy Integration Test.<br/><br/>"
-				+ "Best regards,<br/>"
-				+ "Axon Ivy AG" + "');"); */
-		//$(By.id("form:emailContentInputTextEditor_input")).sendKeys(emailContent);
+		$(By.id("form:emailContentInputTextEditor_editor")).$("div").sendKeys(emailContent);
 		// verify that the sendEmail button is enabled, before clicking it.
 		$(By.id("form:sendEmailButton")).shouldBe(enabled).click();
 	}
