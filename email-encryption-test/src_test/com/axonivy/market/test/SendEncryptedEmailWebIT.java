@@ -14,7 +14,6 @@ import org.openqa.selenium.By;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
-import com.codeborne.selenide.Selenide;
 
 
 /**
