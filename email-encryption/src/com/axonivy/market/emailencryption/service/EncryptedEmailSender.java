@@ -49,14 +49,10 @@ import ch.ivyteam.util.IvyException;
 public class EncryptedEmailSender {
 
 	/**
-	 * Sends email encrypted by given certificate to provided receiver
+	 * Sends email encrypted by given certificate to provided receiver.
 	 * 
 	 * @param mail
 	 * @param certificate
-	 * @param title
-	 * @param invisibleLine
-	 * @param footer
-	 * @param logo
 	 * @throws Exception
 	 */
 	public static void sendEncryptedMail(Email mail, X509Certificate certificate) throws Exception {

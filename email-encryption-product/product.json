@@ -6,6 +6,28 @@
         "projects": [
           {
             "groupId": "com.axonivy.market",
+            "artifactId": "email-encryption",
+            "version": "${version}",
+            "type": "iar"
+          }
+        ],
+        "repositories": [
+          {
+            "id": "maven.axonivy.com",
+            "url": "https://maven.axonivy.com",
+            "snapshots": {
+              "enabled": "true"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "maven-import",
+      "data": {
+        "projects": [
+          {
+            "groupId": "com.axonivy.market",
             "artifactId": "email-encryption-demo",
             "version": "${version}",
             "type": "iar"
