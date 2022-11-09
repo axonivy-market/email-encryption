@@ -4,6 +4,17 @@
 
 ## Demo
 
+In this Demo, you will be able to send an encrypted email.
+
+![Encrypted Email screenshot](EncryptedEmailDemo.png "Encrypted Email screenshot")
+
+1. Start the SendEncryptedEmail process.
+
+2. Fill in the email form.
+
+3. Set the public key of the receiver.
+
+4. Send the email.
 
 ## Setup
 
@@ -11,7 +22,7 @@
 
 First you will need to install OpenSSL on windows, and you can download it from here: [OpenSSL](http://gnuwin32.sourceforge.net/packages/openssl.htm) 
 
-All the command you should run from command prompt under the installation directory in BIN folder:
+All the commands should be run from command prompt under the installation directory in BIN folder:
 
 ```
 
@@ -19,7 +30,7 @@ C:\OpenSSL-Win64\bin
 
 ```
 
-First, let’s create a self-sign certificate and a private authority valid for 365 days (1 year):
+First, let’s create a self-sign certificate and a private authority valid for 365 days:
 
 ```
 

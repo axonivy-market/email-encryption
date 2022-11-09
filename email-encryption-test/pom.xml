@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.axonivy.market</groupId>
-  <artifactId>email-encryptiontest</artifactId>
+  <artifactId>email-encryption-test</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>iar-integration-test</packaging>
   <dependencies>

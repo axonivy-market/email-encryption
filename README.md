@@ -4,4 +4,4 @@
 
 **Email encryption Demo**  is a demo to send an encrypted email to a specific email address.
 
-Read our [documentation](email-encryption-demo/README.md).
+Read our [documentation](email-encryption-product/README.md).
