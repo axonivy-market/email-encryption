@@ -3,16 +3,19 @@ package com.axonivy.market.emailencryption.ui;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
+import org.springframework.mail.SimpleMailMessage;
 
-import com.axonivy.market.emailencryption.service.Email;
 import com.axonivy.market.emailencryption.service.EncryptedEmailSender;
 
 import ch.ivyteam.ivy.environment.Ivy;
@@ -29,14 +32,18 @@ public class EncryptedEmailSenderBean {
 	
 	private String username;
 	
-	private Email email = new Email();
+	private SimpleMailMessage email = new SimpleMailMessage();
+	
+	private String emailRecipient;
 	
 	private String certificateAsString;
+	
+	private List<File> listAttachments = new ArrayList<>();
 	
 	
 	public EncryptedEmailSenderBean() throws IvyException {
 		try {
-			MailClientConfig mailClientConfig = EncryptedEmailSender.mailSetup();
+			MailClientConfig mailClientConfig = EncryptedEmailSender.getMailSetup();
 			hostname = mailClientConfig.host();
 			port = String.valueOf(mailClientConfig.port());
 			username = mailClientConfig.user();
@@ -53,7 +60,7 @@ public class EncryptedEmailSenderBean {
 			try {
 				File attachment = new File(file.getFileName(), true);
 				attachment.writeBinary(new Binary(file.getContent()));
-				email.getAttachments().add(attachment);
+				listAttachments.add(attachment);
 			} catch (IOException e) {
 				Ivy.log().error("Error when adding attachement", e);
 			}
@@ -62,20 +69,30 @@ public class EncryptedEmailSenderBean {
 	}
 	
 	public void removeAttachment(File attachment) {
-		email.getAttachments().remove(attachment);
+		listAttachments.remove(attachment);
 	}
 	
 	public void sendEmail() {
+		email.setTo(emailRecipient);
+		
 		try (InputStream inStream = new ByteArrayInputStream(certificateAsString.getBytes())) {
 			CertificateFactory cf = CertificateFactory.getInstance("X.509");
 			X509Certificate certificate = (X509Certificate) cf.generateCertificate(inStream);
 			
-			EncryptedEmailSender.sendEncryptedMail(email, certificate);
-			
+			try {
+				EncryptedEmailSender.sendEncryptedMail(email, certificate, listAttachments);
+				
+				FacesContext.getCurrentInstance().addMessage("", 
+						new FacesMessage(FacesMessage.SEVERITY_INFO, "Email sent to: " + emailRecipient, ""));
+			} catch (Exception e) {
+				FacesContext.getCurrentInstance().addMessage("", 
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Email is not sent to: " + emailRecipient, ""));
+				Ivy.log().error("Error occurred while sending email.", e);
+			}
+		} catch (IOException | CertificateException e) {
 			FacesContext.getCurrentInstance().addMessage("", 
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Email sent to: " + email.getTo(), ""));
-		} catch (Exception e) {
-			Ivy.log().error("Error occurred while sending email.", e);
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Certificate is not valid.", ""));
+			Ivy.log().error("Certificate is not valid.", e);
 		}
 	}
 	
@@ -104,18 +121,6 @@ public class EncryptedEmailSenderBean {
 		this.port = port;
 	}
 	/**
-	 * @return the email
-	 */
-	public Email getEmail() {
-		return email;
-	}
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(Email email) {
-		this.email = email;
-	}
-	/**
 	 * @return the certificateAsString
 	 */
 	public String getCertificateAsString() {
@@ -139,6 +144,47 @@ public class EncryptedEmailSenderBean {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
+	/**
+	 * @return the listAttachments
+	 */
+	public List<File> getListAttachments() {
+		return listAttachments;
+	}
+
+	/**
+	 * @param listAttachments the listAttachments to set
+	 */
+	public void setListAttachments(List<File> listAttachments) {
+		this.listAttachments = listAttachments;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public SimpleMailMessage getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(SimpleMailMessage email) {
+		this.email = email;
+	}
+
+	/**
+	 * @return the emailRecipient
+	 */
+	public String getEmailRecipient() {
+		return emailRecipient;
+	}
+
+	/**
+	 * @param emailRecipient the emailRecipient to set
+	 */
+	public void setEmailRecipient(String emailRecipient) {
+		this.emailRecipient = emailRecipient;
+	}
 	
 }

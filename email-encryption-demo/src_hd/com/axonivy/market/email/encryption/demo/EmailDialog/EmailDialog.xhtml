@@ -26,13 +26,13 @@
 						<p:inputText id="emailFromInputText" value="#{data.encryptedEmailSenderBean.email.from}" />
 						
 						<p:outputLabel for="emailToInputText" value="To"/>
-						<p:inputText id="emailToInputText" value="#{data.encryptedEmailSenderBean.email.to}" 
+						<p:inputText id="emailToInputText" value="#{data.encryptedEmailSenderBean.emailRecipient}" 
 							required="true" requiredMessage="To is mandatory field."/>
 						
 						<p:outputLabel for="emailSubjectInputText" value="Subject"/>
 						<p:inputText id="emailSubjectInputText" value="#{data.encryptedEmailSenderBean.email.subject}" />
 						
-						<p:dataGrid id="listAttachments" columns="1" value="#{data.encryptedEmailSenderBean.email.attachments}" 
+						<p:dataGrid id="listAttachments" columns="1" value="#{data.encryptedEmailSenderBean.listAttachments}" 
 								var="attachment" emptyMessage="">
 							<h:outputText value="#{attachment.name}"/>
 							<p:commandLink actionListener="#{data.encryptedEmailSenderBean.removeAttachment(attachment)}" 
@@ -49,7 +49,7 @@
 							rows="4" autoResize="false" required="true" requiredMessage="Certificate is mandatory field."/>
 						
 						<p:outputLabel for="emailContentInputTextEditor" value="Content"/>
-						<p:textEditor id="emailContentInputTextEditor" value="#{data.encryptedEmailSenderBean.email.content}" 
+						<p:textEditor id="emailContentInputTextEditor" value="#{data.encryptedEmailSenderBean.email.text}" 
 								allowImages="false" allowLinks="false" height="200">
 							<f:facet name="toolbar">
 								<span class="ql-formats">
