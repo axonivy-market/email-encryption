@@ -14,6 +14,7 @@ import org.openqa.selenium.By;
 
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
+import com.codeborne.selenide.SelenideElement;
 
 
 /**
@@ -44,12 +45,15 @@ public class SendEncryptedEmailWebIT {
 			$(By.id("form:certificateInputTextarea")).sendKeys(IOUtils.toString(certificate, StandardCharsets.UTF_8));
 		} catch (IOException e) {
 		}
-		String emailContent = "Hi Tester WebIT, <br/><br/> "
-				+ "This is an encrypted email sent to you by an Axon Ivy Integration Test. <br/><br/> "
-				+ "Best regards, <br/> "
-				+ "Axon Ivy AG";
 		$(By.id("form:emailContentInputTextEditor")).scrollTo().shouldBe(enabled).click();
-		$(By.id("form:emailContentInputTextEditor_editor")).$("div").sendKeys(emailContent);
+		SelenideElement contentEditor = $(By.id("form:emailContentInputTextEditor_editor")).$("div");
+		contentEditor.sendKeys("Hi Tester WebIT,");
+		contentEditor.pressEnter();
+		contentEditor.sendKeys("This is an encrypted email sent to you by an Axon Ivy Integration Test.");
+		contentEditor.pressEnter();
+		contentEditor.sendKeys("Best regards,");
+		contentEditor.pressEnter();
+		contentEditor.sendKeys("Axon Ivy AG.");
 		// verify that the sendEmail button is enabled, before clicking it.
 		$(By.id("form:sendEmailButton")).shouldBe(enabled).click();
 	}

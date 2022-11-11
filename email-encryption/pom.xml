@@ -13,11 +13,11 @@
       <artifactId>bcmail-jdk15on</artifactId>
       <version>1.70</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/com.googlecode.owasp-java-html-sanitizer/owasp-java-html-sanitizer -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
     <dependency>
-      <groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
-      <artifactId>owasp-java-html-sanitizer</artifactId>
-      <version>20211018.2</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>5.3.22</version>
     </dependency>
   </dependencies>
   <build>
