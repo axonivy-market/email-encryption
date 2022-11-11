@@ -5,8 +5,8 @@
       "data": {
         "projects": [
           {
-            "groupId": "MY-GROUP-ID",
-            "artifactId": "MY-PRODUCT-NAME-demo",
+            "groupId": "com.axonivy.market",
+            "artifactId": "email-encryption",
             "version": "${version}",
             "type": "iar"
           }
@@ -23,12 +23,12 @@
       }
     },
     {
-      "id": "maven-dependency",
+      "id": "maven-import",
       "data": {
-        "dependencies": [
+        "projects": [
           {
-            "groupId": "MY-GROUP-ID",
-            "artifactId": "MY-PRODUCT-NAME",
+            "groupId": "com.axonivy.market",
+            "artifactId": "email-encryption-demo",
             "version": "${version}",
             "type": "iar"
           }
