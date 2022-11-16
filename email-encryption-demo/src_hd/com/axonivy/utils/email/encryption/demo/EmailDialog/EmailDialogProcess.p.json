@@ -3,7 +3,7 @@
   "id" : "1844329E5F6F0023",
   "kind" : "HTML_DIALOG",
   "config" : {
-    "data" : "com.axonivy.market.email.encryption.demo.EmailDialog.EmailDialogData"
+    "data" : "com.axonivy.utils.email.encryption.demo.EmailDialog.EmailDialogData"
   },
   "elements" : [ {
       "id" : "f0",
@@ -47,7 +47,7 @@
       "config" : {
         "output" : {
           "code" : [
-            "import com.axonivy.market.emailencryption.ui.EncryptedEmailSenderBean;",
+            "import com.axonivy.utils.emailencryption.ui.EncryptedEmailSenderBean;",
             "",
             "",
             "in.encryptedEmailSenderBean = new EncryptedEmailSenderBean();"

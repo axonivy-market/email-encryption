@@ -1,4 +1,4 @@
-package com.axonivy.market.test;
+package com.axonivy.utils.test;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.$;

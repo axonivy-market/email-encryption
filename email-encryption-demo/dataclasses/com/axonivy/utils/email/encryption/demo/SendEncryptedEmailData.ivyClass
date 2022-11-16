@@ -1,0 +1,2 @@
+SendEncryptedEmailData #class
+com.axonivy.utils.email.encryption.demo #namespace
