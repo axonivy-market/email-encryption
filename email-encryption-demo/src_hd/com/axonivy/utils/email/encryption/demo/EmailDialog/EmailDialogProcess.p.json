@@ -47,7 +47,7 @@
       "config" : {
         "output" : {
           "code" : [
-            "import com.axonivy.utils.emailencryption.ui.EncryptedEmailSenderBean;",
+            "import com.axonivy.utils.email.encryption.ui.EncryptedEmailSenderBean;",
             "",
             "",
             "in.encryptedEmailSenderBean = new EncryptedEmailSenderBean();"

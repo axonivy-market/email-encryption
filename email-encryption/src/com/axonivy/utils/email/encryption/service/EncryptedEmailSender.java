@@ -1,4 +1,4 @@
-package com.axonivy.utils.emailencryption.service;
+package com.axonivy.utils.email.encryption.service;
 
 import java.security.Security;
 import java.security.cert.X509Certificate;

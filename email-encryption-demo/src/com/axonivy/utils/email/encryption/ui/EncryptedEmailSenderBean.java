@@ -1,4 +1,4 @@
-package com.axonivy.utils.emailencryption.ui;
+package com.axonivy.utils.email.encryption.ui;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -16,7 +16,7 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.file.UploadedFile;
 import org.springframework.mail.SimpleMailMessage;
 
-import com.axonivy.utils.emailencryption.service.EncryptedEmailSender;
+import com.axonivy.utils.email.encryption.service.EncryptedEmailSender;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.mail.MailClientConfig;
