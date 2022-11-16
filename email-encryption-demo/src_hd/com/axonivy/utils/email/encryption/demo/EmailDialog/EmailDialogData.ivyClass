@@ -1,4 +1,4 @@
 EmailDialogData #class
 com.axonivy.utils.email.encryption.demo.EmailDialog #namespace
-encryptedEmailSenderBean com.axonivy.utils.emailencryption.ui.EncryptedEmailSenderBean #field
+encryptedEmailSenderBean com.axonivy.utils.email.encryption.ui.EncryptedEmailSenderBean #field
 encryptedEmailSenderBean PERSISTENT #fieldModifier
