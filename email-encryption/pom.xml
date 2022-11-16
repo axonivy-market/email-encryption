@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.axonivy.utils.email.encryption</groupId>
   <artifactId>email-encryption</artifactId>
-  <version>10.0.0</version>
+  <version>10.0.1-SNAPSHOT</version>
   <packaging>iar</packaging>
   <dependencies>
     <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcmail-jdk15on -->
