@@ -1,4 +1,4 @@
-package com.axonivy.utils.test;
+package com.axonivy.utils.email.encryption.test;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.$;
