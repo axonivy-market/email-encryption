@@ -2,7 +2,7 @@
   "format" : "10.0.0",
   "id" : "18442CF71BAC8A4F",
   "config" : {
-    "data" : "com.axonivy.market.email.encryption.demo.SendEncryptedEmailData"
+    "data" : "com.axonivy.utils.email.encryption.demo.SendEncryptedEmailData"
   },
   "elements" : [ {
       "id" : "f0",
@@ -11,7 +11,8 @@
       "config" : {
         "callSignature" : "start",
         "outLink" : "start.ivp",
-        "startName" : "Send Encrypted Email"
+        "startName" : "Send Encrypted Email",
+        "tags" : "demo"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
@@ -28,7 +29,7 @@
       "type" : "DialogCall",
       "name" : "EmailDialog",
       "config" : {
-        "dialogId" : "com.axonivy.market.email.encryption.demo.EmailDialog",
+        "dialogId" : "com.axonivy.utils.email.encryption.demo.EmailDialog",
         "startMethod" : "start()"
       },
       "visual" : {
