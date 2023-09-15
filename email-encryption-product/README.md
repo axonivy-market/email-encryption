@@ -1,10 +1,16 @@
 # Email encryption Demo
 
-**Email encryption Demo**  is a demo to send an encrypted email to a specific email address.
+Axon Ivy’s email encryption addon helps accelerate process automation initiatives by providing an example implementation for sending encrypted emails out of any business process. This market item:
+
+- Gives you a template for sending encrypted emails via preconfigured form.
+- Is based on the OpenSSL library featuring open-source implementations of the SSL and TLS protocols.
+- Supports you with an easy-to-copy demo implementation.
+- Enables low-code citizen developers to implement secure applications.
+
 
 ## Demo
 
-In this Demo, you will be able to send an encrypted email.
+In this demo application, you will be able to send an encrypted emails directly from your UI form in any of your business processes.
 
 ![Encrypted Email screenshot](EncryptedEmailDemo.png "Encrypted Email screenshot")
 
@@ -18,11 +24,11 @@ In this Demo, you will be able to send an encrypted email.
 
 ## Setup
 
-### CREATE SELF SIGNED S/MIME CERTIFICATE
+### Create Self Signed S/MIME certificate
 
-First you will need to install OpenSSL on windows, and you can download it from here: [OpenSSL](http://gnuwin32.sourceforge.net/packages/openssl.htm) 
+First you will need to install OpenSSL on windows. You can download the library from here: [OpenSSL](http://gnuwin32.sourceforge.net/packages/openssl.htm) 
 
-All the commands should be run from command prompt under the installation directory in BIN folder:
+All the commands should be run from the command prompt under the installation directory in the BIN folder:
 
 ```
 
@@ -38,11 +44,11 @@ openssl req -x509 -newkey rsa:4096 -keyout encrypted.email.key -out encrypted.em
 
 ```
 
-Fill all the information in the wizard to create the certificate using the password for the private key
+Fill in all the information in the wizard to create the certificate using the private key password:
 
 ![Open SSL command](OpenSSL.png "Open SSL command")
 
-Now you have created self-signed certificate with the Private authority, but outlook, thunderbird and other email client use `p12` certificate style, so let's create this kind of certificate:
+Now you have created a self-signed certificate with the private authority, but MS Outlook, Thunderbird, and other email clients use the `p12` certificate style. Therefore, let's create this kind of certificate:
 
 ```
 
@@ -50,13 +56,13 @@ openssl pkcs12 -export -inkey encrypted.email.key -in encrypted.email.crt -out e
 
 ```
 
-Enter the password you have created for the private key before. Now you have all the certificates you will need. To trust those certificates, you will need to install them on your email client.
+Enter the password you have created for the private key. Now you have all the certificates you will need. To trust those certificates, you will need to install them on your email client.
 
-### Install an S/MIME Certificate with Outlook
+### Install an S/MIME certificate for MS Outlook
 
-Installing the certificate on outlook as describe very nicely at [Installing an s-mime certificate with outlook](https://www.ssl.com/how-to/installing-an-s-mime-certificate-and-sending-secure-email-with-outlook-on-windows-10) 
+Installing the certificate for MS Outlook is described here: [Installing an s-mime certificate with outlook](https://www.ssl.com/how-to/installing-an-s-mime-certificate-and-sending-secure-email-with-outlook-on-windows-10) 
 
-1. In Outlook, select File from the main menu, then click Options.
+1. In MS Outlook, select File from the main menu, then click Options.
 
 2. Select **Trust Center** at the bottom of the menu on the left side.
 
@@ -76,19 +82,19 @@ Installing the certificate on outlook as describe very nicely at [Installing an 
 
 8. Enter the password you used when downloading the PKCS#12 file, then click **OK**.
 
-### Install an S/MIME Certificate with Thunderbird
+### Install an S/MIME Certificate on Thunderbird email client
 
-1. Open **Account Settings**
+1. Open **Account Settings**.
 
-2. Select **End-To-End Encryption**
+2. Select **End-To-End Encryption**.
 
-3. Click on **Manage S/MIME Certificates** 
+3. Click on **Manage S/MIME Certificates**.
 
 ![Thunderbird Certificate Manager](ThunderbirdCertificateManager.png "Thunderbird Certificate Manager")
 
-4. Click on **Import...**
+4. Click on **Import...**.
 
-5. Navigate to the PKCS#12 file, then click **Open**. The filename extension should be `.p12`
+5. Navigate to the PKCS#12 file, then click **Open**. The filename extension should be `.p12`.
 
 6. Enter the password you used when downloading the `PKCS#12` file, then click **OK**.
 
