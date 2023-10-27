@@ -20,7 +20,6 @@ import org.bouncycastle.cms.jcajce.JceKeyTransRecipientInfoGenerator;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.mail.smime.SMIMEEnvelopedGenerator;
 import org.bouncycastle.operator.OutputEncryptor;
-import org.eclipse.core.resources.IProject;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -31,7 +30,6 @@ import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.mail.MailClientConfig;
 import ch.ivyteam.ivy.mail.MailClientConfigProvider;
 import ch.ivyteam.ivy.mail.MailConstants.EmailEncryption;
-import ch.ivyteam.ivy.project.IIvyProject;
 import ch.ivyteam.ivy.scripting.objects.File;
 import ch.ivyteam.ivy.security.exec.Sudo;
 
@@ -136,9 +134,7 @@ public class EncryptedEmailSender {
 		return Sudo.call(new Callable<MailClientConfig>() {
 			@Override
 			public MailClientConfig call() throws Exception {
-				IProject project = Ivy.request().getProcessModelVersion().getProject();
-				IIvyProject ivyProject = (IIvyProject) project.getAdapter(IIvyProject.class);
-				return MailClientConfigProvider.get(ivyProject);
+				return MailClientConfigProvider.get();
 			}
 		});
 	}
