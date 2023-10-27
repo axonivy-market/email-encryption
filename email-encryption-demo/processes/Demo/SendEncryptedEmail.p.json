@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "$schema" : "https://json-schema.axonivy.com/process/11.2.1/process.json",
   "id" : "18442CF71BAC8A4F",
   "config" : {
     "data" : "com.axonivy.utils.email.encryption.demo.SendEncryptedEmailData"
@@ -9,15 +9,20 @@
       "type" : "RequestStart",
       "name" : "start.ivp",
       "config" : {
-        "callSignature" : "start",
-        "outLink" : "start.ivp",
-        "startName" : "Send Encrypted Email",
-        "tags" : "demo"
+        "signature" : "start",
+        "request" : {
+          "name" : "Send Encrypted Email"
+        }
       },
+      "tags" : [
+        "demo"
+      ],
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -29,12 +34,13 @@
       "type" : "DialogCall",
       "name" : "EmailDialog",
       "config" : {
-        "dialogId" : "com.axonivy.utils.email.encryption.demo.EmailDialog",
-        "startMethod" : "start()"
+        "dialog" : "com.axonivy.utils.email.encryption.demo.EmailDialog:start()"
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
     } ]
 }
