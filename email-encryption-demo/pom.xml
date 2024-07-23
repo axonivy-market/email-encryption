@@ -4,17 +4,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.axonivy.utils.email.encryption</groupId>
   <artifactId>email-encryption-demo</artifactId>
-  <version>11.2.0-SNAPSHOT</version>
+  <version>11.3.0-SNAPSHOT</version>
   <packaging>iar</packaging>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>sonatype</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-      <snapshots>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
   <dependencies>
     <dependency>
       <groupId>com.axonivy.utils.email.encryption</groupId>
@@ -23,12 +14,21 @@
       <type>iar</type>
     </dependency>
   </dependencies>
+  <pluginRepositories>
+    <pluginRepository>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+      <id>sonatype</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </pluginRepository>
+  </pluginRepositories>
   <build>
     <plugins>
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>11.2.0-SNAPSHOT</version>
+        <version>11.3.0</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
