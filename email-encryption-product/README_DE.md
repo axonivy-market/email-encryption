@@ -21,7 +21,7 @@ In dieser Demo-Anwendung kannst Du direkt aus Deinem UI-Formular in einem Deiner
 
 4. Sende die E-Mail.
 
-## Einrichtung
+## Setup
 
 ### Erstelle ein selbst signiertes S/MIME-Zertifikat
 
