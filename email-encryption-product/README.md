@@ -1,11 +1,11 @@
-# Email encryption Demo
+# Email Encryption Demo
 
-Axon Ivy’s email encryption addon helps accelerate process automation initiatives by providing an example implementation for sending encrypted emails out of any business process. This market item:
+Axon Ivy's email encryption utility provides you with a sample implementation for sending encrypted emails from any business process.
 
-- Gives you a template for sending encrypted emails via preconfigured form.
-- Is based on the OpenSSL library featuring open-source implementations of the SSL and TLS protocols.
-- Supports you with an easy-to-copy demo implementation.
-- Enables low-code citizen developers to implement secure applications.
+This market item:
+
+- gives you a template for sending encrypted emails via a preconfigured form.
+- is based on the OpenSSL library, featuring open-source implementations of the SSL and TLS protocols.
 
 
 ## Demo
