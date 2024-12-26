@@ -7,6 +7,7 @@
   <packaging>iar</packaging>
   <properties>
     <project.build.plugin.version>12.0.0</project.build.plugin.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
     <dependency>
@@ -17,7 +18,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
-      <version>6.2.1</version>
+      <version>5.3.39</version>
     </dependency>
   </dependencies>
   <pluginRepositories>

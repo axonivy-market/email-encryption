@@ -5,7 +5,6 @@
   "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "encryptedEmailSenderBean",
-    "type" : "com.axonivy.utils.email.encryption.ui.EncryptedEmailSenderBean",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "com.axonivy.utils.email.encryption.ui.EncryptedEmailSenderBean"
   } ]
 }
