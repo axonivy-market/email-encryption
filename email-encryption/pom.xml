@@ -12,9 +12,6 @@
   <artifactId>email-encryption</artifactId>
   <version>13.1.1-SNAPSHOT</version>
   <packaging>iar</packaging>
-  <properties>
-    <project.build.plugin.version>12.0.0</project.build.plugin.version>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>org.bouncycastle</groupId>
@@ -24,7 +21,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
-      <version>7.0.0-M6</version>
+      <version>5.3.39</version>
     </dependency>
     <dependency>
       <groupId>com.axonivy.ivy.api</groupId>
