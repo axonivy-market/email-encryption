@@ -1,41 +1,42 @@
-# #Email Verschlüsselung Demo
+# E-Mail-Verschlüsselungs-Demo
 
-#Axon Efeus#Email Verschlüsselung Nutzen versieht du mit eine Sample Ausführung
-für senden #verschlüsselt #Email von irgendwelchem dienstlichen Arbeitsgang.
+Das E-Mail-Verschlüsselungsprogramm von Axon Ivy bietet Ihnen eine
+Beispielimplementierung für das Versenden verschlüsselter E-Mails aus beliebigen
+Geschäftsprozessen.
 
-Dieses Markt Stück:
+Dieser Marktartikel:
 
-- Gibt du eine Vorlage für senden #verschlüsselt #Email via #ein preconfigured
-  Form.
-- Ist gegründet weiter das OpenSSL Bibliothek, bietend offen-Quelle Ausführungen
-  von die SSL und TLS Protokolle.
+- bietet Ihnen eine Vorlage zum Versenden verschlüsselter E-Mails über ein
+  vorkonfiguriertes Formular.
+- basiert auf der OpenSSL-Bibliothek, die Open-Source-Implementierungen der SSL-
+  und TLS-Protokolle enthält.
 
 ## Demo
 
-In diesen Demo Antrag, du willst können senden direkt #ein #verschlüsselt #Email
-von eure UI Form in #irgendein von euren dienstlichen Arbeitsgängen.
+In dieser Demo-Anwendung können Sie verschlüsselte E-Mails direkt aus Ihrem
+UI-Formular in jedem Ihrer Geschäftsprozesse versenden.
 
-![#Verschlüsselt #Email #Screenshot](EncryptedEmailDemo.png "#Verschlüsselt
-#Email #Screenshot")
+![Screenshot der verschlüsselten E-Mail](EncryptedEmailDemo.png "Screenshot der
+verschlüsselten E-Mail")
 
-1. Starte das SendEncryptedEmail Arbeitsgang.
+1. Starten Sie den Prozess „SendEncryptedEmail”.
 
-2. Setz ein die #Email Form.
+2. Füllen Sie das E-Mail-Formular aus.
 
-3. Gesetzt den öffentlichen Schlüssel von dem Telefonhörer.
+3. Legen Sie den öffentlichen Schlüssel des Empfängers fest.
 
-4. Sende die #Email.
+4. Senden Sie die E-Mail.
 
 ## Einrichtung
 
-### Schaff #Ich Signiert S/MIMT Urkunde
+### Erstellen Sie ein selbstsigniertes S/MIME-Zertifikat.
 
-Zuerst willst du brauchen zu installieren OpenSSL auf Fenster. Du können die
-Bibliothek herunterladen von hier:
+Zunächst müssen Sie OpenSSL unter Windows installieren. Sie können die
+Bibliothek hier herunterladen:
 [OpenSSL](http://gnuwin32.sourceforge.net/packages/openssl.htm)
 
-Jede die Befehle sollten sein gerannt von die Befehl #Eingabeaufforderung unter
-das Installation Telefonbuch in den MÜLLEIMER Ordner:
+Alle Befehle sollten über die Eingabeaufforderung im Installationsverzeichnis im
+Ordner „BIN” ausgeführt werden:
 
 ```
 
@@ -43,8 +44,8 @@ C:\OpenSSL-Win64\bin
 
 ```
 
-Zuerst, lass uns schaffen ein #Ich-Indiz Urkunde und eine persönliche Autorität
-gültig für 365 Tage:
+Zunächst erstellen wir ein selbstsigniertes Zertifikat und eine private
+Zertifizierungsstelle mit einer Gültigkeit von 365 Tagen:
 
 ```
 
@@ -52,15 +53,14 @@ openssl req -x509 -newkey rsa:4096 -keyout encrypted.email.key -out encrypted.em
 
 ```
 
-Setz ein alle die Auskunft in dem Zauberer zu schaffen die Urkunde benutzend den
-persönlichen Schlüssel Passwort:
+Geben Sie alle Informationen im Assistenten ein, um das Zertifikat mit dem
+Passwort für den privaten Schlüssel zu erstellen:
 
-![Öffne SSL Befehl](OpenSSL.png "Öffne SSL Befehl")
+![Open SSL-Befehl](OpenSSL.png "Öffnen Sie den SSL-Befehl.")
 
-Jetzt geschafft hast du ein #Ich-#mit Vorzeichen versehen Urkunde mit der
-persönlichen Autorität, aber FRAU Aussicht, Donnervogel, und anderen #Email
-Kunden benutzen die `p12` Urkunde Stil. Deswegen, lass uns schaffen diese Sorte
-Urkunde:
+Sie haben nun ein selbstsigniertes Zertifikat mit der privaten Behörde erstellt,
+aber MS Outlook, Thunderbird und andere E-Mail-Clients verwenden das Zertifikat
+im Stil „ `p12` ”. Erstellen wir daher ein solches Zertifikat:
 
 ```
 
@@ -68,58 +68,68 @@ openssl pkcs12 -export -inkey encrypted.email.key -in encrypted.email.crt -out e
 
 ```
 
-Betritt das Passwort du geschafft hast für den persönlichen Schlüssel. Jetzt
-hast du alle die Urkunden willst du brauchen. Zu hoffen jene Urkunden, du willst
-brauchen zu installieren jene auf euren #Email Kunden.
+Geben Sie das Passwort ein, das Sie für den privaten Schlüssel erstellt haben.
+Jetzt haben Sie alle erforderlichen Zertifikate. Um diese Zertifikate als
+vertrauenswürdig einzustufen, müssen Sie sie in Ihrem E-Mail-Client
+installieren.
 
-### Installier ein S/MIMT Urkunde für FRAU Aussicht
+### Installieren Sie ein S/MIME-Zertifikat für MS Outlook.
 
-Installierend die Urkunde für FRAU Aussicht ist beschrieben hier: [Installierend
-ein s-mimen Urkunde mit
-Aussicht](https://www.ssl.com/how-to/installing-an-s-mime-certificate-and-sending-secure-email-with-outlook-on-windows-10)
+Die Installation des Zertifikats für MS Outlook wird hier beschrieben:
+[Installation eines S-MIME-Zertifikats mit
+Outlook](https://www.ssl.com/how-to/installing-an-s-mime-certificate-and-sending-secure-email-with-outlook-on-windows-10)
 
-1. In FRAU Aussicht, #ausgewählt Datei von der hauptsächlichen Speisekarte, dann
-   Klick Optionen.
+1. Wählen Sie in MS Outlook im Hauptmenü „Datei“ und klicken Sie dann auf
+   „Optionen“.
 
-2. Wähl aus **Trust Zentrum** an dem Boden von der Speisekarte auf das #links
-   #Seite.
+2. Wählen Sie „ **“ „Trust Center“ „** “ unten im Menü auf der linken Seite.
 
-3. Klick das **Trust Zentrum Lagen** Knopf.
+3. Klicken Sie auf die Schaltfläche „ **Trust Center Settings“
+   (Vertrauensstellungscenter-Einstellungen) „** “ (Vertrauen für diese Website
+   gewähren).
 
-4. Wähl aus **#Email Sicherheit** #linksseitig differenzierbar-Hand Speisekarte
-   von die **Trust Zentrum** Fenster.
+4. **Wählen Sie im linken Menü des Fensters „ **Trust Center“ (** ) die Option
+   „E-Mail-Sicherheit“ (Email Security) und dann
+   „E-Mail-Sicherheitseinstellungen“ (** ) aus.
 
-![Aussicht Trust Zentrum](OutlookTrustCenter.png "Aussicht Trust Zentrum")
+![Outlook-Vertrauensstellungscenter](OutlookTrustCenter.png
+"Outlook-Sicherheitscenter")
 
-5. Klick das **Einfuhr/Ausfuhr** Knopf, unter **Digital IDs (Urkunden)**.
+5. ** Klicken Sie auf die Schaltfläche „ **“ (Import/Export von Zertifikaten)
+   unter „ **“ (Zertifikate) „Digital IDs (Certificates)“ (Digitale IDs
+   (Zertifikate)) „** “ (Zertifikate).
 
-6. Herstellung sicher **Einfuhr #existierend Digital ID von einer Datei** ist
-   überprüft, dann Klick **#Durchsuchen...**
+6. Stellen Sie sicher, dass „ **“ (Bestehende digitale ID aus einer Datei
+   importieren) und „** “ (Datei auswählen) aktiviert sind, und klicken Sie dann
+   auf „ **“ (Datei auswählen) und „Browse...“ (Durchsuchen).**
 
-![Importier Digital ID](ImportDigitalID.png "Einfuhr Digital ID")
+![Import Digital ID](ImportDigitalID.png "Digitale ID importieren")
 
-7. Befahr zu das PKCS#12 feil, dann Klick **Öffnet**. Das filename Extension
-   sollte sein .p12
+7. Navigieren Sie zur PKCS#12-Datei und klicken Sie dann auf „ **“ (Datei
+   hinzufügen). Öffnen Sie „** “ (Datei hinzufügen). Die Dateiendung sollte .p12
+   lauten.
 
-8. Betritt das Passwort du benutztest #wann #herunterladen das PKCS#12 feil,
-   dann Klick **OK**.
+8. Geben Sie das Passwort ein, das Sie beim Herunterladen der PKCS#12-Datei
+   verwendet haben, und klicken Sie dann auf „ **“ (OK) „** “ (OK).
 
-### Installier ein S/MIMT Urkunde auf Donnervogel #Email Kunden
+### Installieren Sie ein S/MIME-Zertifikat auf dem E-Mail-Client Thunderbird.
 
-1. Öffne **Konto Lagen**.
+1. Öffnen Sie **Kontoeinstellungen**.
 
-2. Wähl aus **Ende-Zu-Ende Verschlüsselung**.
+2. Wählen Sie „ **“ (End-to-End-Verschlüsselung) „** “ (Verschlüsselte Dateien).
 
-3. Klick weiter **Bringt fertig S/MIMT Urkunden**.
+3. Klicken Sie auf „ **“ (S/MIME-Zertifikate verwalten) „** “
+   (S/MIME-Zertifikate verwalten).
 
-![Donnervogel Urkunde Manager](ThunderbirdCertificateManager.png "Donnervogel
-Urkunde Manager")
+![Thunderbird-Zertifikatsmanager](ThunderbirdCertificateManager.png
+"Thunderbird-Zertifikatsmanager")
 
-4. Klick weiter **Einfuhr...**.
+4. Klicken Sie auf „ **“ Importieren...**.
 
-5. Befahr zu das PKCS#12 feil, dann Klick **Öffnet**. Das filename Extension
-   sollte sein `.p12`.
+5. Navigieren Sie zur PKCS#12-Datei und klicken Sie dann auf „ **“
+   (PKCS#12-Datei öffnen). Öffnen Sie „** “ (PKCS#12-Datei). Die
+   Dateinamenerweiterung sollte „ `.p12“ lauten.`.
 
-6. Betritt das Passwort du benutztest #wann #herunterladen das `PKCS#12` Datei,
-   dann Klick **OK**.
+6. Geben Sie das Passwort ein, das Sie beim Herunterladen der Datei „ `PKCS#12`
+   ” verwendet haben, und klicken Sie dann auf „ **” und „OK”**.
 
