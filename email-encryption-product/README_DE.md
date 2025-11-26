@@ -27,7 +27,7 @@ verschlüsselten E-Mail")
 
 4. Senden Sie die E-Mail.
 
-## Einrichtung
+## Setup
 
 ### Erstellen Sie ein selbstsigniertes S/MIME-Zertifikat.
 
