@@ -7,11 +7,11 @@ import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.Callable;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
+import jakarta.mail.Message;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeBodyPart;
+import jakarta.mail.internet.MimeMessage;
 
 import org.apache.commons.lang3.StringUtils;
 import org.bouncycastle.cms.CMSAlgorithm;
@@ -29,7 +29,6 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.mail.MailClientConfig;
 import ch.ivyteam.ivy.mail.MailClientConfigProvider;
-import ch.ivyteam.ivy.mail.MailConstants.EmailEncryption;
 import ch.ivyteam.ivy.scripting.objects.File;
 import ch.ivyteam.ivy.security.exec.Sudo;
 
@@ -39,6 +38,8 @@ import ch.ivyteam.ivy.security.exec.Sudo;
  */
 public class EncryptedEmailSender {
 	private static JavaMailSender mailSender;
+	private static final String SSL = "SSL";
+	private static final String START_TLS = "START_TLS";
 	
 	
 	/**
@@ -114,11 +115,11 @@ public class EncryptedEmailSender {
 	private static Properties getJavaMailProperties(MailClientConfig mailConfig) {
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
-		if (mailConfig.encryption() == EmailEncryption.SSL) {
+		if (mailConfig.encryption() == SSL) {
 			props.put("mail.smtp.socketFactory.port", mailConfig.port());
 			props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 		}
-		else if (mailConfig.encryption() == EmailEncryption.START_TLS) {
+		else if (mailConfig.encryption() == START_TLS) {
 			props.put("mail.smtp.starttls.enable", "true");
 		}
 		return props;
