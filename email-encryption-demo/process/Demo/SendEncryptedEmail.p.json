@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/process.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/process-2.json",
   "id" : "18442CF71BAC8A4F",
   "config" : {
     "data" : "com.axonivy.utils.email.encryption.demo.SendEncryptedEmailData"
